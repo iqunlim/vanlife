@@ -101,7 +101,7 @@ main {
 main.main-page {
   width: 100%;
   height: 400px;
-  background-image: url("mainbg.png");
+  background-image: url("./assets/mainbg.png");
   background-color: #00000046;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -129,7 +129,7 @@ main.about-page {
 div.about-img {
   height: 235px;
   width: 100%;
-  background-image: url("aboutbg.png");
+  background-image: url("./assets/aboutbg.png");
   background-size: cover;
   background-position: center center;
 }
