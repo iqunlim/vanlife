@@ -40,7 +40,6 @@ footer {
 }
 
 h1 {
-  color: white;
   font-weight: 700;
   font-size: 2.25rem;
   line-height: 1;
@@ -50,11 +49,18 @@ h1 {
 }
 
 h2 {
-  color: white;
   font-weight: 500;
   font-size: 1rem;
   width: 90%;
   padding-top: 20px;
+}
+
+h1.main-page-h1 {
+  color: white;
+}
+
+h2.main-page-h2 {
+  color: white;
 }
 
 a {
@@ -116,14 +122,8 @@ main.about-page {
   gap: 35px;
 }
 
-.find-van {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.main-button {
   margin-top: 50px;
-  border: none;
-  color: white;
-  background-color: #ff8c38;
 }
 
 div.about-img {
@@ -165,21 +165,51 @@ section.about-section {
   line-height: 22px;
 }
 
-.button-black {
+[class$="-button"] {
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
+}
+
+.black-button {
   background-color: black;
   color: white;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
 }
 
-.button-black:hover,
-.find-van:hover {
+.green-button {
+  background-color: #115e59;
+  color: #ffead0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.orange-button {
+  color: #ffead0;
+  background-color: #ff8c38;
+  font-weight: 600;
+}
+
+.manila-button {
+  background-color: #ffead0;
+  color: #4d4d4d;
+  font-weight: 500;
+}
+
+.green-button:hover,
+.orange-button:hover,
+.black-button:hover,
+.manila-button:hover {
   color: white;
   text-decoration: none;
+}
+
+.sm-button {
+  width: 85px;
+  height: 35px;
+  border-radius: 5px;
 }
 
 .md-button {
@@ -192,4 +222,67 @@ section.about-section {
   width: 90%;
   height: 50px;
   border-radius: 5px;
+}
+
+/* Options page */
+div.options {
+  margin: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.options-img {
+  border-radius: 5px;
+  width: 230px;
+  height: 230px;
+}
+
+[class^="options-container-"] {
+  margin: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.options-subcomponent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.day-text {
+  position: relative;
+  font-size: 12px;
+  top: -10px;
+  right: 0;
+}
+
+.options-button {
+  align-self: center;
+}
+
+span.van-text {
+  margin-block: 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.van-filter {
+  display: flex;
+  align-items: center;
+  justify-self: flex-start;
+  align-self: flex-start;
+  margin-top: 25px;
+  margin-left: 25px;
+  gap: 20px;
+}
+
+.van-filter-clear {
+  text-decoration: underline;
+  color: #4d4d4d;
+  margin-left: 30px;
+}
+
+.van-filter-clear:hover {
+  color: #000;
 }

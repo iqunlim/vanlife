@@ -20,7 +20,7 @@ export default function About(): React.JSX.Element {
         <h2 className="about-page-h2">
           Your destination is waiting. Your van is ready.
         </h2>
-        <Link className="button-black md-button" to="/vans">
+        <Link className="black-button md-button" to="/vans">
           Explore our vans
         </Link>
       </div>

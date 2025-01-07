@@ -1,9 +1,11 @@
 import "./App.css";
-import Main from "./components/Main";
-import About from "./components/About";
+import Main from "./pages/Main";
+import About from "./pages/About";
 import Container from "./components/Container";
+import Vans from "./pages/Vans";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./server";
 
 function App(): React.ReactElement {
   return (
@@ -12,6 +14,7 @@ function App(): React.ReactElement {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/about" element={<About />} />
+          <Route path="/vans" element={<Vans />} />
         </Routes>
       </Container>
     </BrowserRouter>
