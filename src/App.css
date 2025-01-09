@@ -12,6 +12,17 @@
   border-radius: 5px;
 }
 
+/* Resetting a formatting */
+a.no-deco {
+  text-decoration: none; /* Remove default underline */
+  color: inherit; /* Inherit color from parent element */
+}
+
+a.no-deco {
+  text-decoration: none; /* Remove default underline */
+  color: inherit; /* Inherit color from parent element */
+}
+
 header,
 nav {
   display: flex;
@@ -63,22 +74,18 @@ h2.main-page-h2 {
   color: white;
 }
 
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 nav a {
   font-size: 1rem;
   color: #4d4d4d;
   font-weight: 600;
+  text-decoration: none;
 }
 
 nav a:hover {
+  font-size: 1rem;
+  font-weight: 600;
   color: #000;
+  text-decoration: underline;
 }
 
 .branding-title {
@@ -131,6 +138,9 @@ div.about-img {
   width: 100%;
   background-image: url("./assets/aboutbg.png");
   background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-position: center center;
 }
 
@@ -170,6 +180,7 @@ section.about-section {
   justify-content: center;
   align-items: center;
   border: none;
+  text-decoration: none;
 }
 
 .black-button {
@@ -202,7 +213,6 @@ section.about-section {
 .orange-button:hover,
 .black-button:hover,
 .manila-button:hover {
-  color: white;
   text-decoration: none;
 }
 
@@ -285,4 +295,61 @@ span.van-text {
 
 .van-filter-clear:hover {
   color: #000;
+}
+i[class*="van-type-"] {
+  padding: 7px 14px;
+}
+
+.van-detail-container {
+  padding: 27px;
+}
+
+.van-detail-container .back-button {
+  color: black;
+  text-decoration: none;
+}
+
+.van-detail-container .back-button:visited {
+}
+
+.van-detail-container .back-button span {
+  text-decoration: underline;
+}
+
+.van-detail {
+  display: flex;
+  flex-direction: column;
+  color: #161616;
+}
+
+.van-detail img {
+  border-radius: 5px;
+  margin-block: 47px;
+}
+
+.van-detail h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.van-detail > i {
+  align-self: flex-start;
+}
+
+.van-detail .van-price {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.van-detail .van-price span {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.van-detail .link-button {
+  align-self: center;
+}
+
+button {
+  font-size: 1rem;
 }
