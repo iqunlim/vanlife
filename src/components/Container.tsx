@@ -1,14 +1,7 @@
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
 export default function Container({
   children,
 }: React.PropsWithChildren): React.ReactElement {
-  return (
-    <div className="container">
-      <Header />
-      {children}
-      <Footer />
-    </div>
-  );
+  // Forcing 550px width for later show-off page
+  return <div className="container">{children}</div>;
 }
