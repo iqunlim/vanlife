@@ -12,11 +12,13 @@ import Reviews from "./pages/Host/Reviews";
 import HostLayout from "./pages/Host/HostLayout";
 import Dashboard from "./pages/Host/Dashboard";
 import HostVans from "./pages/Host/HostVans";
-import "./server";
 import Details from "./pages/Host/HostDetails";
 import HostVanDetailsLayout from "./pages/Host/HostDetailsLayout";
 import HostPhotos from "./pages/Host/HostPhotos";
 import HostPricing from "./pages/Host/HostPricing";
+import NotFoundPage from "./pages/NotFound";
+
+import "./server";
 
 function App(): React.ReactElement {
   return (
@@ -24,6 +26,7 @@ function App(): React.ReactElement {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
+            <Route path="*" element={<NotFoundPage />} />
             <Route index element={<Main />} />
             <Route path="about" element={<About />} />
             <Route path="vans" element={<Vans />} />

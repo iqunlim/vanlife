@@ -25,6 +25,7 @@ export default function HostVanDetailsLayout() {
   };
   const activeNavStyle = ({ isActive }: { isActive: boolean }) =>
     isActive ? navStyle : undefined;
+
   return (
     <main className="van-detail-page">
       <div className="back">
@@ -54,7 +55,7 @@ export default function HostVanDetailsLayout() {
           </div>
           <div className="van-detail-details-nav"></div>
           <nav className="host-nav">
-            <NavLink style={activeNavStyle} to="details" end>
+            <NavLink style={activeNavStyle} to="." end>
               Details
             </NavLink>
             <NavLink style={activeNavStyle} to="pricing">
@@ -64,7 +65,7 @@ export default function HostVanDetailsLayout() {
               Photos
             </NavLink>
           </nav>
-          <Outlet />
+          <Outlet context={van} />
         </div>
       ) : null}
     </main>

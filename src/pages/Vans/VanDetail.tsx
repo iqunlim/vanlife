@@ -1,10 +1,13 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { VanDataOne, VanObject } from "./Vans";
+import { BsArrowLeft } from "react-icons/bs";
 
 export default function VanDetail() {
   const [van, setVanDetal] = React.useState<VanObject | null>(null);
   const params = useParams();
+  const location = useLocation();
+  console.log(location);
 
   async function fetchOneVan(id: string | undefined): Promise<VanDataOne> {
     if (typeof id === "undefined") {
@@ -17,8 +20,19 @@ export default function VanDetail() {
     fetchOneVan(params.id).then((response) => setVanDetal(response.vans));
   }, [params.id]);
 
+  const backLocationState =
+    location != null && location.key != "default"
+      ? `..?${location.state.search}`
+      : "..";
+
+  const type = location.state?.type || "all";
+
   return (
     <div className="van-detail-container">
+      <BsArrowLeft />
+      <Link to={backLocationState} relative="path" className="back">
+        {`Back to ${type} vans`}
+      </Link>
       {van ? (
         <div className="van-detail">
           <img src={van.imageUrl} />

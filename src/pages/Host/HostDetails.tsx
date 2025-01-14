@@ -1,15 +1,9 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 import { VanObject } from "../Vans/Vans";
 
 export default function Details() {
-  const [van, setHostVan] = useState<VanObject | null>(null);
-  const params = useParams();
-  useEffect(() => {
-    fetch(`/api/host/vans/${params.id}`)
-      .then((response) => response.json())
-      .then((response) => setHostVan(response.vans));
-  }, [params.id]);
+  const van = useOutletContext<VanObject>();
+
   return (
     <div className="van-detail-details-nav">
       {van ? (

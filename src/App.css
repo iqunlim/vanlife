@@ -183,27 +183,31 @@ section.about-section {
   text-decoration: none;
 }
 
-.black-button {
+.black-button,
+.black-button-selected {
   background-color: black;
   color: white;
   font-weight: 600;
   text-decoration: none;
 }
 
-.green-button {
+.green-button,
+.green-button-selected {
   background-color: #115e59;
   color: #ffead0;
   font-weight: 600;
   text-decoration: none;
 }
 
-.orange-button {
+.orange-button,
+.orange-button-selected {
   color: #ffead0;
   background-color: #ff8c38;
   font-weight: 600;
 }
 
-.manila-button {
+.manila-button,
+.manila-button-selected {
   background-color: #ffead0;
   color: #4d4d4d;
   font-weight: 500;
@@ -216,6 +220,31 @@ section.about-section {
   text-decoration: none;
 }
 
+.black-onhover-button:hover {
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.green-onhover-button:hover {
+  background-color: #115e59;
+  color: #ffead0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.orange-onhover-button:hover {
+  color: #ffead0;
+  background-color: #ff8c38;
+  font-weight: 600;
+}
+
+.manila-onhover-button:hover {
+  background-color: #ffead0;
+  color: #4d4d4d;
+  font-weight: 500;
+}
 .sm-button {
   width: 85px;
   height: 35px;
@@ -288,6 +317,8 @@ span.van-text {
 }
 
 .van-filter-clear {
+  border: none;
+  background: none;
   text-decoration: underline;
   color: #4d4d4d;
   margin-left: 30px;
@@ -423,7 +454,6 @@ button {
 
 .van-detail-page {
   margin: 1rem;
-  width: 90%;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -487,4 +517,34 @@ div.back {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+/* Host photos page */
+.photos-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.photos-flex-photo {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.notfound-page {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block: 20px;
+}
+
+.notfound-page > h1 {
+  margin-left: 5%;
+  align-self: flex-start;
+  margin-bottom: 40px;
+}
+
+.notfound-page > button {
+  align-content: center;
+  margin: auto;
 }
