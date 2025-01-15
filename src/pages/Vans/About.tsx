@@ -1,9 +1,10 @@
 import React from "react";
+import AboutBg from "../../assets/aboutbg.png";
 import { Link } from "react-router-dom";
 export default function About(): React.JSX.Element {
   return (
     <main className="about-page">
-      <div className="about-img"></div>
+      <img className="about-img" src={AboutBg} />
       <h1 className="about-page-h1">
         Don't squeeze in a sedan when you could relax in a van.
       </h1>
