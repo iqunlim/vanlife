@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import clsx from "clsx";
 import { Link, useSearchParams } from "react-router-dom";
 import { APIError, getVansFromAPI } from "../../api.ts";
+import classes from "../../css-modules/Vans.module.css"
 
 export interface VanDataAll {
   vans: VanObject[];
@@ -11,13 +12,15 @@ export interface VanDataOne {
   vans: VanObject;
 }
 
+export type VanType = "simple" | "rugged" | "luxury";
+
 export interface VanObject {
   id: string;
   name: string;
   price: number;
   description: string;
   imageUrl: string;
-  type: "simple" | "rugged" | "luxury";
+  type: VanType
 }
 
 export default function Vans() {
@@ -78,9 +81,9 @@ export default function Vans() {
     );
   }
   return (
-    <main className="van-page">
+    <main className={classes.vanPage}>
       <h1>Explore our van options</h1>
-      <div className="van-filter">
+      <div className={classes.vanFilter}>
         <button
           className={clsx({
             "sm-button": true,
@@ -116,17 +119,17 @@ export default function Vans() {
         </button>
         {typeFilter ? (
           <button
-            className="van-filter-clear"
+            className={classes.vanFilterClear}
             onClick={() => handleFilterChange("type", null)}
           >
             Clear filters
           </button>
         ) : null}
       </div>
-      <div className="options">
+      <div className={classes.options}>
         {vanDataFiltered ? (
           vanDataFiltered.map((van) => (
-            <div key={van.id} className={`options-container-${van.id}`}>
+            <div key={van.id} className={classes.optionsContainer}>
               <Link
                 className="no-deco"
                 to={van.id}
@@ -135,12 +138,12 @@ export default function Vans() {
                   type: typeFilter,
                 }}
               >
-                <img className="options-img" src={van.imageUrl} />
-                <div className="options-subcomponent">
-                  <span className="van-text">{van.name}</span>
-                  <span className="van-text">${van.price}</span>
+                <img className={classes.optionsImg} src={van.imageUrl} />
+                <div className={classes.optionsSubcomponent}>
+                  <span className={classes.vanText}>{van.name}</span>
+                  <span className={classes.vanText}>${van.price}</span>
                 </div>
-                <div className="options-subcomponent">
+                <div className={classes.optionsSubcomponent}>
                   <div
                     className={clsx({
                       "options-button": true,
@@ -153,7 +156,7 @@ export default function Vans() {
                     {van.type.charAt(0).toUpperCase() +
                       String(van.type).slice(1)}
                   </div>
-                  <span className="day-text">/day</span>
+                  <span className={classes.dayText}>/day</span>
                 </div>
               </Link>
             </div>

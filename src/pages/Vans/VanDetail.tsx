@@ -2,6 +2,8 @@ import React from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { VanDataOne, VanObject } from "./Vans";
 import { BsArrowLeft } from "react-icons/bs";
+import classes from "../../css-modules/VanDetail.module.css"
+import clsx from "clsx";
 
 export default function VanDetail() {
   const [van, setVanDetal] = React.useState<VanObject | null>(null);
@@ -28,15 +30,22 @@ export default function VanDetail() {
   const type = location.state?.type || "all";
 
   return (
-    <div className="van-detail-container">
-      <BsArrowLeft />
-      <Link to={backLocationState} relative="path" className="back">
-        {`Back to ${type} vans`}
-      </Link>
+    <div className={classes.vanDetailContainer}>
+      <div className={classes.backFlex}>
+        <BsArrowLeft />
+        <Link to={backLocationState} relative="path" className={classes.back}>
+          {`Back to ${type} vans`}
+        </Link>
+      </div>
       {van ? (
-        <div className="van-detail">
+        <div className={classes.vanDetail}>
           <img src={van.imageUrl} />
-          <i className={`van-type ${van.type} selected`}>{van.type}</i>
+          <i className={clsx({
+            "sm-button": true,
+            "orange-button": van.type === "simple",
+            "green-button": van.type === "rugged",
+            "black-button": van.type === "luxury",
+          })}>{van.type}</i>
           <h2>{van.name}</h2>
           <p className="van-price">
             <span>${van.price}</span>/day

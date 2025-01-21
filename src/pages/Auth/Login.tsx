@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { APIError, Creds, loginUser } from "../../api";
+import classes from "../../css-modules/Login.module.css"
 
 type StatusState = "idle" | "submitting";
 
@@ -49,12 +50,12 @@ export default function Login() {
   return (
     <>
       {location.state?.msg && <h2>{location.state.msg}</h2>}
-      <div className="login-container">
+      <div className={classes.loginContainer}>
         <h1>Sign in to your account</h1>
         {error?.message && (
           <h2 style={{ color: "red" }}>Error: {error.message}</h2>
         )}
-        <form onSubmit={handleSubmit} className="login-form">
+        <form onSubmit={handleSubmit} className={classes.loginForm}>
           <input
             name="email"
             onChange={handleChange}
@@ -72,7 +73,7 @@ export default function Login() {
           <button
             disabled={status === "submitting"}
             className={
-              status === "submitting" ? "login-container__button--faded" : ""
+              status === "submitting" ? classes.loginButton : ""
             }
           >
             Log in

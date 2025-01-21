@@ -4,6 +4,20 @@
   box-sizing: border-box;
 }
 
+:root {
+  background-color: #ffeacf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 550px;
+  height: fit-content;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
 * {
   margin: 0;
 }
@@ -19,4 +33,107 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+[class*="-button"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  text-decoration: none;
+}
+
+.black-button,
+.black-button-selected {
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.green-button,
+.green-button-selected {
+  background-color: #115e59;
+  color: #ffead0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.orange-button,
+.orange-button-selected {
+  color: #ffead0;
+  background-color: #ff8c38;
+  font-weight: 600;
+}
+
+.manila-button,
+.manila-button-selected {
+  background-color: #ffead0;
+  color: #4d4d4d;
+  font-weight: 500;
+}
+
+.green-button:hover,
+.orange-button:hover,
+.black-button:hover,
+.manila-button:hover {
+  text-decoration: none;
+}
+
+.black-onhover-button:hover {
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.green-onhover-button:hover {
+  background-color: #115e59;
+  color: #ffead0;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.orange-onhover-button:hover {
+  color: #ffead0;
+  background-color: #ff8c38;
+  font-weight: 600;
+}
+
+.manila-onhover-button:hover {
+  background-color: #ffead0;
+  color: #4d4d4d;
+  font-weight: 500;
+}
+
+.sm-button {
+  width: 85px;
+  height: 35px;
+  border-radius: 5px;
+}
+
+.md-button {
+  width: 175px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.wide-button {
+  width: 90%;
+  height: 50px;
+  border-radius: 5px;
+}
+
+a.no-deco {
+  text-decoration: none;
+  /* Remove default underline */
+  color: inherit;
+  /* Inherit color from parent element */
+}
+
+a.no-deco {
+  text-decoration: none;
+  /* Remove default underline */
+  color: inherit;
+  /* Inherit color from parent element */
 }

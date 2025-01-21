@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import classes from "../../css-modules/HostDetails.module.css"
 
 export default function HostLayout() {
   const navStyle: CSSProperties = {
@@ -12,7 +13,7 @@ export default function HostLayout() {
 
   return (
     <>
-      <nav className="host-nav">
+      <nav className={classes.hostNav}>
         <NavLink style={activeNavStyle} to="." end>
           Dashboard
         </NavLink>

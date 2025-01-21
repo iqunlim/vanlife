@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
 import Container from "./components/Container";
 import About from "./pages/Vans/About";
 import Main from "./pages/Main";

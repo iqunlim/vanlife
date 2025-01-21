@@ -36,7 +36,7 @@ type TokenResponse = {
   token: string;
 };
 
-export async function loginUser(creds: Creds): Promise<TokenResponse> | never {
+export async function loginUser(creds: Creds): Promise<TokenResponse> {
   console.log(creds);
   const res = await fetch("/api/login", {
     method: "post",
