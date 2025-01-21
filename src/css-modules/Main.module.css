@@ -1,0 +1,41 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  padding-block: 40px;
+  background-image: url("../assets/mainbg.png");
+  background-color: #00000046;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}
+
+.header {
+  color: white;
+}
+
+.main-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  text-decoration: none;
+  margin-top: 50px;
+  width: 90%;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.orange-button {
+  color: #ffead0;
+  background-color: #ff8c38;
+  font-weight: 600;
+}
+.orange-button:hover {
+  text-decoration: none;
+}

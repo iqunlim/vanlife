@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
+import classes from "../css-modules/Main.module.css"
 export default function Main() {
   return (
-    <main className="main-page">
-      <h1 className="main-page-h1">
+    <main className={classes.mainPage}>
+      <h1 className={classes.header}>
         You got the travel plans, we got the travel vans.
       </h1>
-      <h2 className="main-page-h2">
+      <h2 className={classes.header}>
         Add adventure to your life by joining the #vanlife movement. Rent the
         perfect van to make your perfect road trip.
       </h2>
-      <Link className="main-button wide-button orange-button" to="/vans">
+      <Link className={`${classes.mainButton} ${ classes.orangeButton }`} to="/vans">
         Find your van
       </Link>
     </main>

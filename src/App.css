@@ -88,18 +88,6 @@ nav a:hover {
   text-decoration: underline;
 }
 
-.branding-title {
-  font-size: 1.6rem;
-  color: #000;
-  font-weight: 900;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.branding-title:hover {
-  text-decoration: none;
-}
-
 .copyright-text::before {
   content: "\00A9 ";
 }
@@ -111,27 +99,10 @@ main {
   align-items: center;
 }
 
-main.main-page {
-  width: 100%;
-  height: fit-content;
-  padding-block: 40px;
-  background-image: url("./assets/mainbg.png");
-  background-color: #00000046;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-position: center center;
-}
-
 main.about-page {
   display: flex;
   flex-direction: column;
   gap: 35px;
-}
-
-.main-button {
-  margin-top: 50px;
 }
 
 .about-img {
@@ -522,74 +493,4 @@ div.back {
 .photos-flex-photo {
   max-width: 100px;
   max-height: 100px;
-}
-
-.notfound-page {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-block: 20px;
-}
-
-.notfound-page > h1 {
-  margin-left: 5%;
-  align-self: flex-start;
-  margin-bottom: 40px;
-}
-
-.notfound-page > button {
-  align-content: center;
-  margin: auto;
-}
-.login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  padding-inline: 27px;
-  margin-block: 30px;
-}
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 500px;
-}
-
-.login-form > input {
-  border: 1px solid rgba(209, 213, 219);
-  height: 40px;
-  text-indent: 10px;
-  font-family: "Inter", sans-serif;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-  font-weight: 400;
-}
-
-.login-form > input:focus {
-  outline: none;
-}
-
-.login-form > input:first-of-type {
-  border-radius: 6px 6px 0px 0px;
-}
-
-.login-form > input:last-of-type {
-  border-radius: 0px 0px 6px 6px;
-  border-top: none;
-}
-
-.login-form > button {
-  background-color: #ff8c38;
-  border: none;
-  border-radius: 6px;
-  height: 55px;
-  margin-top: 22px;
-  color: white;
-  font-family: "Inter", sans-serif;
-}
-
-button.login-container__button--faded {
-  background-color: #4d4d4d;
 }

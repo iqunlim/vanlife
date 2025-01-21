@@ -1,28 +1,24 @@
-import React, { CSSProperties } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import classes from "../css-modules/Header.module.css"
 
 export default function Header(): React.ReactElement {
-  const mainNavStyle: CSSProperties = {
-    fontWeight: "bold",
-    textDecoration: "underline",
-    color: "#161616",
-  };
   const activeMainNavStyle = ({ isActive }: { isActive: boolean }) =>
-    isActive ? mainNavStyle : undefined;
+    isActive ? classes.nav : undefined;
 
   return (
     <header>
-      <Link className="branding-title" to="/">
+      <Link className={classes.title} to="/">
         #VANLIFE
       </Link>
       <nav>
-        <NavLink to="host" style={activeMainNavStyle}>
+        <NavLink to="host" className={activeMainNavStyle}>
           Host
         </NavLink>
-        <NavLink to="/about" style={activeMainNavStyle}>
+        <NavLink to="/about" className={activeMainNavStyle}>
           About
         </NavLink>
-        <NavLink to="/vans" style={activeMainNavStyle}>
+        <NavLink to="/vans" className={activeMainNavStyle}>
           Vans
         </NavLink>
       </nav>
