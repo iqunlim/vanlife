@@ -1,4 +1,61 @@
 import { createServer, Model, Response } from "miragejs";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  getDoc,
+  doc,
+  query,
+  where,
+} from "firebase/firestore/lite";
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
+};
+
+const db = getFirestore(initializeApp(firebaseConfig));
+
+const vansCollectionRef = collection(db, "vans");
+
+export async function getVans() {
+  const snapshot = await getDocs(vansCollectionRef);
+  const vans = snapshot.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id,
+  }));
+  return vans;
+}
+
+export async function getVan(id) {
+  const docRef = doc(db, "vans", id);
+  const snapshot = await getDoc(docRef);
+  if (snapshot.exists()) {
+    return snapshot.data();
+  } else {
+    throw new Error("No such document");
+  }
+}
+
+export async function getHostVans() {
+  q = query(docRef, where("hostId", "==", "123"));
+  const snapshot = await getDocs(q);
+  const vans = snapshot.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id,
+  }));
+  return vans;
+}
+
+console.log(getVan("1"));
 
 createServer({
   models: {
@@ -85,7 +142,8 @@ createServer({
   routes() {
     this.namespace = "api";
     this.logging = false;
-    this.timing = 2000; // => mock a 2 second delay in server response
+    //this.timing = 2000; // => mock a 2 second delay in server response
+    this.passthrough("https://firestore.googleapis.com/**");
 
     this.get("/vans", (schema, request) => {
       // return new Response(400, {}, {error: "Error fetching data"})
@@ -110,9 +168,6 @@ createServer({
 
     this.post("/login", (schema, request) => {
       const { email, password } = JSON.parse(request.requestBody);
-      // ⚠️ This is an extremely naive version of authentication. Please don't
-      // do this in the real world, and never save raw text passwords
-      // in your database 😅
       const foundUser = schema.users.findBy({ email, password });
       if (!foundUser) {
         return new Response(
