@@ -32,20 +32,20 @@ function App(): React.ReactElement {
             <Route path="about" element={<About />} />
             <Route path="vans" element={<Vans />} />
             <Route path="vans/:id" element={<VanDetail />} />
-            <Route element={<AuthRequired />}>
-              <Route path="host" element={<HostLayout />}>
-                <Route index element={<Dashboard />} />
-                <Route path="income" element={<Income />} />
-                <Route path="reviews" element={<Reviews />} />
-                <Route path="vans" element={<HostVans />} />
-                <Route path="vans/:id" element={<HostVanDetailsLayout />}>
-                  <Route index element={<Details />} />
-                  <Route path="details" element={<Details />} />
-                  <Route path="pricing" element={<HostPricing />} />
-                  <Route path="photos" element={<HostPhotos />} />
-                </Route>
+            {/* <Route element={<AuthRequired />}> */}
+            <Route path="host" element={<HostLayout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="income" element={<Income />} />
+              <Route path="reviews" element={<Reviews />} />
+              <Route path="vans" element={<HostVans />} />
+              <Route path="vans/:id" element={<HostVanDetailsLayout />}>
+                <Route index element={<Details />} />
+                <Route path="details" element={<Details />} />
+                <Route path="pricing" element={<HostPricing />} />
+                <Route path="photos" element={<HostPhotos />} />
               </Route>
             </Route>
+            {/* </Route> */}
             <Route path="login" element={<Login />} />
           </Route>
         </Routes>

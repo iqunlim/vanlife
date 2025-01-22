@@ -1,13 +1,14 @@
 import { useOutletContext } from "react-router-dom";
 import { VanObject } from "../Vans/Vans";
+import classes from "../../css-modules/HostDetails.module.css"
 
 export default function Details() {
   const van = useOutletContext<VanObject>();
 
   return (
-    <div className="van-detail-details-nav">
+    <div>
       {van ? (
-        <div className="van-detail-details-bottom">
+        <div className={classes.vanDetailDetails}>
           <div>
             <strong>Name: </strong>
             <span>{van.name}</span>

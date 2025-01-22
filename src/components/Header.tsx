@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import classes from "../css-modules/Header.module.css"
+import classes from "../css-modules/Layout.module.css"
 
 export default function Header(): React.ReactElement {
   const activeMainNavStyle = ({ isActive }: { isActive: boolean }) =>

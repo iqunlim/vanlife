@@ -1,7 +1,8 @@
 import React from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { VanDataOne, VanObject } from "./Vans";
+import { VanDataOne, VanObject, VanType } from "./Vans";
 import { BsArrowLeft } from "react-icons/bs";
+import classes from "../../css-modules/VanDetail.module.css"
 
 export default function VanDetail() {
   const [van, setVanDetal] = React.useState<VanObject | null>(null);
@@ -27,16 +28,30 @@ export default function VanDetail() {
 
   const type = location.state?.type || "all";
 
+
+  const vanTypeStyleHelper = (type: VanType) => {
+    switch (type) {
+      case "simple":
+        return classes.vantypesimple
+      case "rugged":
+        return classes.vantyperugged
+      case "luxury":
+        return classes.vantypeluxury
+      default:
+        return classes.vantypeany
+    }
+  }
+
   return (
-    <div className="van-detail-container">
+    <div className={classes.vanDetailContainer}>
       <BsArrowLeft />
-      <Link to={backLocationState} relative="path" className="back">
+      <Link to={backLocationState} relative="path" className={classes.back}>
         {`Back to ${type} vans`}
       </Link>
       {van ? (
-        <div className="van-detail">
+        <div className={classes.vanDetail}>
           <img src={van.imageUrl} />
-          <i className={`van-type ${van.type} selected`}>{van.type}</i>
+          <i className={vanTypeStyleHelper(van.type)}>{van.type}</i>
           <h2>{van.name}</h2>
           <p className="van-price">
             <span>${van.price}</span>/day

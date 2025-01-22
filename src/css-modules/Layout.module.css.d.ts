@@ -8,13 +8,18 @@
 
 const title: string;
 const nav: string;
+const copyrightText: string;
 
 export {
 	title,
-	nav
+	nav,
+	copyrightText as "copyright-text",
+	copyrightText
 };
 
 export default {
 	title,
-	nav
+	nav,
+	"copyright-text": copyrightText,
+	copyrightText
 };

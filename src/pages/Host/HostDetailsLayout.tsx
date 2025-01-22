@@ -3,6 +3,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 import { VanDataOne, VanObject } from "../Vans/Vans";
 import clsx from "clsx";
+import classes from "../../css-modules/HostDetails.module.css"
 
 export default function HostVanDetailsLayout() {
   const params = useParams();
@@ -27,18 +28,18 @@ export default function HostVanDetailsLayout() {
     isActive ? navStyle : undefined;
 
   return (
-    <main className="van-detail-page">
-      <div className="back">
+    <main className={classes.vanDetailPage}>
+      <div className={classes.back}>
         <BsArrowLeft />
-        <Link className="link-back" to=".." relative="path">
+        <Link className={classes.linkBack} to=".." relative="path">
           Back to all vans
         </Link>
       </div>
       {van ? (
-        <div className="van-detail-details">
-          <div className="van-detail-details-top">
-            <img className="van-detail-details-img" src={van.imageUrl} />
-            <div className="van-detail-details-top-side">
+        <div className={classes.vanDetailDetails}>
+          <div className={classes.vanDetailDetailsTop}>
+            <img className={classes.vanDetailDetailsImg} src={van.imageUrl} />
+            <div className={classes.vanDetailDetailsTopSide}>
               <div
                 className={clsx({
                   "sm-button": true,
@@ -49,12 +50,11 @@ export default function HostVanDetailsLayout() {
               >
                 {van.type}
               </div>
-              <h2 className="van-detail-details-h2">Modest Explorer</h2>
-              <span className="per-day-text">{`$${van.price}/day`}</span>
+              <h2 className={classes.vanDetailDetailsH2}>Modest Explorer</h2>
+              <span className={classes.perDayText}>{`$${van.price}/day`}</span>
             </div>
           </div>
-          <div className="van-detail-details-nav"></div>
-          <nav className="host-nav">
+          <nav className={classes.hostNav}>
             <NavLink style={activeNavStyle} to="." end>
               Details
             </NavLink>

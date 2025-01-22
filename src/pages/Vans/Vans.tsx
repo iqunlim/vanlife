@@ -11,13 +11,15 @@ export interface VanDataOne {
   vans: VanObject;
 }
 
+export type VanType = "simple" | "rugged" | "luxury";
+
 export interface VanObject {
   id: string;
   name: string;
   price: number;
   description: string;
   imageUrl: string;
-  type: "simple" | "rugged" | "luxury";
+  type: VanType
 }
 
 export default function Vans() {
