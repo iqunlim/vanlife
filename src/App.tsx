@@ -34,7 +34,7 @@ function App(): React.ReactElement {
     const unsubscribe = setupAuthenticator(setAuthenticated, setUserId)
 
     return () => {
-      setAuthenticated(true)
+      setAuthenticated(false)
       setUserId("")
       unsubscribe()
     };
