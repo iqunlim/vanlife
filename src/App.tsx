@@ -16,11 +16,31 @@ import HostPhotos from "./pages/Host/HostPhotos";
 import HostPricing from "./pages/Host/HostPricing";
 import NotFoundPage from "./pages/NotFound";
 
-import "./server";
+//import "./api/server";
 import Login from "./pages/Auth/Login";
 import AuthRequired from "./pages/Auth/AuthRequired";
+import { useEffect, useState } from "react";
+import Logout from "./pages/Auth/Logout";
+import { setupAuthenticator } from "./api/api";
 
 function App(): React.ReactElement {
+
+  // Global app authentication state lives here
+  const [authenticated, setAuthenticated] = useState<boolean>(false)
+  const [userId, setUserId] = useState<string>("")
+
+  useEffect(() => {
+    // Getting data from an API Function instead of wiring firebase straight in to the application
+    const unsubscribe = setupAuthenticator(setAuthenticated, setUserId)
+
+    return () => {
+      setAuthenticated(true)
+      setUserId("")
+      unsubscribe()
+    };
+  }, [])
+
+
   return (
     <Container>
       <BrowserRouter>
@@ -31,12 +51,12 @@ function App(): React.ReactElement {
             <Route path="about" element={<About />} />
             <Route path="vans" element={<Vans />} />
             <Route path="vans/:id" element={<VanDetail />} />
-            <Route element={<AuthRequired />}>
+            <Route element={<AuthRequired authState={authenticated} />}>
               <Route path="host" element={<HostLayout />}>
                 <Route index element={<Dashboard />} />
                 <Route path="income" element={<Income />} />
                 <Route path="reviews" element={<Reviews />} />
-                <Route path="vans" element={<HostVans />} />
+                <Route path="vans" element={<HostVans hostId={userId} />} />
                 <Route path="vans/:id" element={<HostVanDetailsLayout />}>
                   <Route index element={<Details />} />
                   <Route path="details" element={<Details />} />
@@ -46,6 +66,7 @@ function App(): React.ReactElement {
               </Route>
             </Route>
             <Route path="login" element={<Login />} />
+            <Route path="logout" element={<Logout authSetter={setAuthenticated} />} />
           </Route>
         </Routes>
       </BrowserRouter>

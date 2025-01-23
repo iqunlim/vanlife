@@ -26,6 +26,9 @@ export default function HostLayout() {
         <NavLink style={activeNavStyle} to="reviews">
           Reviews
         </NavLink>
+        <NavLink style={activeNavStyle} to="/logout">
+          Log out
+        </NavLink>
       </nav>
       <Outlet />
     </>

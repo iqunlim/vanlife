@@ -1,9 +1,7 @@
 import { Outlet, Navigate } from "react-router-dom";
 
-export default function AuthRequired() {
-  const authenticated = false;
-
-  return authenticated ? (
+export default function AuthRequired({ authState }: { authState: boolean }) {
+  return authState ? (
     <Outlet />
   ) : (
     <Navigate

@@ -1,25 +1,29 @@
 import React from "react";
 import { Link, useLocation, useParams } from "react-router-dom";
-import { VanDataOne, VanObject } from "./Vans";
 import { BsArrowLeft } from "react-icons/bs";
 import classes from "../../css-modules/VanDetail.module.css"
 import clsx from "clsx";
+import { getVan } from "../../api/api";
+import { VanObject } from "../../api/types";
 
 export default function VanDetail() {
   const [van, setVanDetal] = React.useState<VanObject | null>(null);
   const params = useParams();
   const location = useLocation();
-  console.log(location);
 
-  async function fetchOneVan(id: string | undefined): Promise<VanDataOne> {
+  async function fetchOneVan(id: string | undefined) {
     if (typeof id === "undefined") {
       throw new TypeError("fetchOneVan: id is undefined");
     }
-    return fetch(`/api/vans/${id}`).then((response) => response.json());
+    return getVan(id);
   }
 
+  // TODO: Error handling on the page
+  // Do a catch and then setError with a state error thing
+  // See Vans.tsx
+  // Use APIError type
   React.useEffect(() => {
-    fetchOneVan(params.id).then((response) => setVanDetal(response.vans));
+    fetchOneVan(params.id).then((response) => setVanDetal(response));
   }, [params.id]);
 
   const backLocationState =

@@ -1,39 +1,21 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import { Link, useSearchParams } from "react-router-dom";
-import { APIError, getVansFromAPI } from "../../api.ts";
+import { APIError, VanObject } from "../../api/types.ts";
 import classes from "../../css-modules/Vans.module.css"
-
-export interface VanDataAll {
-  vans: VanObject[];
-}
-
-export interface VanDataOne {
-  vans: VanObject;
-}
-
-export type VanType = "simple" | "rugged" | "luxury";
-
-export interface VanObject {
-  id: string;
-  name: string;
-  price: number;
-  description: string;
-  imageUrl: string;
-  type: VanType
-}
+import { getVans } from "../../api/api.ts";
 
 export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get("type");
   const [loading, setLoading] = useState<boolean>(false);
-  const [vanData, setVanData] = useState<VanDataAll | null>(null);
+  const [vanData, setVanData] = useState<VanObject[] | null>(null);
   const [error, setError] = useState<APIError | null>(null);
   React.useEffect(() => {
     async function GetData() {
       setLoading(true);
-      getVansFromAPI()
-        .then((vans: VanDataAll) => setVanData(vans))
+      getVans()
+        .then((vans: VanObject[]) => setVanData(vans))
         .catch((err) => setError(err))
         .finally(() => setLoading(false));
     }
@@ -42,9 +24,10 @@ export default function Vans() {
 
   const vanDataFiltered =
     typeFilter && vanData
-      ? vanData.vans.filter((van) => van.type.toLowerCase() === typeFilter)
-      : vanData?.vans;
+      ? vanData.filter((van) => van.type.toLowerCase() === typeFilter)
+      : vanData;
 
+  // Notes:
   // one way to generate search params
   /* function genNewSearchParamString(key: string, value: string) {
     const sp = new URLSearchParams(searchParams);
@@ -75,9 +58,9 @@ export default function Vans() {
   }
 
   if (error) {
-    console.log(error);
+    console.error(error.message);
     return (
-      <h2 aria-live="assertive">{`There was an error: ${error.message}`}</h2>
+      <h2 aria-live="assertive">{`There was an error: ${error.statusText}`}</h2>
     );
   }
   return (

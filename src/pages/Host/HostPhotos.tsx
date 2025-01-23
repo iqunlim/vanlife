@@ -1,6 +1,6 @@
 import { useOutletContext } from "react-router-dom";
-import { VanObject } from "../Vans/Vans";
 import classes from "../../css-modules/HostDetails.module.css"
+import { VanObject } from "../../api/types";
 
 export default function HostPhotos() {
   const van = useOutletContext<VanObject>();

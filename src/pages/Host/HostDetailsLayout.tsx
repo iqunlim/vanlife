@@ -1,22 +1,26 @@
 import { CSSProperties, useEffect, useState } from "react";
 import { BsArrowLeft } from "react-icons/bs";
 import { Link, NavLink, Outlet, useParams } from "react-router-dom";
-import { VanDataOne, VanObject } from "../Vans/Vans";
 import clsx from "clsx";
 import classes from "../../css-modules/HostDetails.module.css"
+import { getVan } from "../../api/api";
+import { VanObject } from "../../api/types";
 
 export default function HostVanDetailsLayout() {
   const params = useParams();
   const [van, setVanDetail] = useState<VanObject | null>(null);
-  async function fetchOneVan(id: string | undefined): Promise<VanDataOne> {
-    if (typeof id === "undefined") {
-      throw new TypeError("fetchOneVan: id is undefined");
-    }
-    return fetch(`/api/host/vans/${id}`).then((response) => response.json());
-  }
 
   useEffect(() => {
-    fetchOneVan(params.id).then((response) => setVanDetail(response.vans));
+    if (typeof params.id === "undefined") {
+      throw new TypeError("fetchOneVan: id is undefined");
+    }
+    getVan(params.id).then((data) => {
+      if (data) {
+        return setVanDetail(data);
+      } else {
+        throw new Error("Test error")
+      }
+    });
   }, [params.id]);
 
   const navStyle: CSSProperties = {

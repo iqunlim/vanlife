@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { APIError, Creds, loginUser } from "../../api";
 import classes from "../../css-modules/Login.module.css"
+import { APIError, Creds } from "../../api/types";
+import FirebaseErrorToAPIError, { loginHost } from "../../api/api";
+import { FirebaseError } from "firebase/app";
 
 type StatusState = "idle" | "submitting";
 
@@ -9,7 +11,7 @@ export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const [status, setStatus] = useState<StatusState>("idle");
-  const [error, setError] = useState<APIError | Error | null>(null);
+  const [error, setError] = useState<APIError | null>(null);
   const [loginFormData, setLoginFormData] = React.useState<Creds>({
     email: "",
     password: "",
@@ -18,22 +20,15 @@ export default function Login() {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("submitting");
-    loginUser(loginFormData)
-      .then((data) => console.log(data))
+    loginHost(loginFormData.email, loginFormData.password)
       .then(() => navigate("/host", { replace: true }))
       .catch((err) => {
-        if (
-          typeof err === "object" &&
-          err !== null &&
-          "statusText" in err &&
-          "status" in err
-        ) {
-          const apiErr = err as APIError;
-          setError(apiErr);
+        if (err instanceof FirebaseError) {
+          const apiErr = FirebaseErrorToAPIError(err)
+          setError(apiErr)
         } else {
-          const newErr = new Error("Unknown error occured");
-          console.error(err);
-          setError(newErr);
+          const apiErr = new APIError("Unknown error", "Unknown error", 500)
+          setError(apiErr)
         }
       })
       .finally(() => setStatus("idle"));
@@ -52,8 +47,8 @@ export default function Login() {
       {location.state?.msg && <h2>{location.state.msg}</h2>}
       <div className={classes.loginContainer}>
         <h1>Sign in to your account</h1>
-        {error?.message && (
-          <h2 style={{ color: "red" }}>Error: {error.message}</h2>
+        {error?.statusText && (
+          <h2 style={{ color: "red" }}>Error: {error.statusText}</h2>
         )}
         <form onSubmit={handleSubmit} className={classes.loginForm}>
           <input
