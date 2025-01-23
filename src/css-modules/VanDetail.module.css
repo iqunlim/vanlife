@@ -27,24 +27,30 @@
 .van-detail h2 {
     font-size: 2rem;
     margin-bottom: 10px;
+    font-weight: 700;
 }
 
-.van-detail>i {
-    align-self: flex-start;
+.van-detail>p {
+    margin-bottom: 1rem;
+    font-style: normal;
 }
 
-.van-detail .van-price {
+.van-price {
     font-size: 1.25rem;
     margin-bottom: 10px;
 }
 
-.van-detail .van-price span {
+.van-price span {
     font-weight: 700;
     font-size: 1.5rem;
 }
 
 .van-detail .link-button {
     align-self: center;
+}
+
+.description {
+    margin-bottom: 1rem;
 }
 
 .vantypeany {
@@ -63,4 +69,9 @@
     display: flex;
     gap: 5px;
     align-items: center;
+}
+
+.link-button {
+    margin: 1rem;
+    align-self: center;
 }

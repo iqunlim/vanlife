@@ -44,18 +44,18 @@ export default function VanDetail() {
       {van ? (
         <div className={classes.vanDetail}>
           <img src={van.imageUrl} />
-          <i className={clsx({
+          <p className={clsx({
             "sm-button": true,
             "orange-button": van.type === "simple",
             "green-button": van.type === "rugged",
             "black-button": van.type === "luxury",
-          })}>{van.type}</i>
+          })}>{van.type}</p>
           <h2>{van.name}</h2>
-          <p className="van-price">
+          <p className={classes.vanPrice}>
             <span>${van.price}</span>/day
           </p>
-          <p>{van.description}</p>
-          <button className="link-button orange-button wide-button">
+          <p className={classes.description}>{van.description}</p>
+          <button className={`${classes.linkButton} orange-button wide-button`}>
             Rent this van
           </button>
         </div>

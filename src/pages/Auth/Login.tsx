@@ -44,9 +44,9 @@ export default function Login() {
 
   return (
     <>
-      {location.state?.msg && <h2>{location.state.msg}</h2>}
       <div className={classes.loginContainer}>
         <h1>Sign in to your account</h1>
+        {location.state?.msg && <h2>{location.state.msg}</h2>}
         {error?.statusText && (
           <h2 style={{ color: "red" }}>Error: {error.statusText}</h2>
         )}
