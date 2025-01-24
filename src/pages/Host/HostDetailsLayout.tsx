@@ -18,7 +18,7 @@ export default function HostVanDetailsLayout() {
       if (data) {
         return setVanDetail(data);
       } else {
-        throw new Error("Test error")
+        throw new Error("Van not found")
       }
     });
   }, [params.id]);

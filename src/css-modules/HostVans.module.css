@@ -6,6 +6,10 @@
     margin-block: 2rem;
 }
 
+.host-vans-overview>h2 {
+    margin-left: 1rem;
+}
+
 .host-vans-entry {
     align-self: center;
     border: none;
