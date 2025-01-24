@@ -7,7 +7,7 @@
 }
 
 .host-vans-overview>h2 {
-    margin-left: 1rem;
+    margin-left: 25px;
 }
 
 .host-vans-entry {
@@ -20,6 +20,12 @@
     width: 90%;
     height: 100px;
     background-color: #ffead0;
+    justify-content: space-between;
+}
+
+.host-vans-container {
+    display: flex;
+    flex: 1 0 auto;
 }
 
 .host-vans-img {

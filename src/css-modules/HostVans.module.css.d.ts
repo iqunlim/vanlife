@@ -8,6 +8,7 @@
 
 const hostVansOverview: string;
 const hostVansEntry: string;
+const hostVansContainer: string;
 const hostVansImg: string;
 const hostVansEntryCol: string;
 const hostVansEntryLink: string;
@@ -18,6 +19,8 @@ export {
 	hostVansOverview,
 	hostVansEntry as "host-vans-entry",
 	hostVansEntry,
+	hostVansContainer as "host-vans-container",
+	hostVansContainer,
 	hostVansImg as "host-vans-img",
 	hostVansImg,
 	hostVansEntryCol as "host-vans-entry-col",
@@ -33,6 +36,8 @@ export default {
 	hostVansOverview,
 	"host-vans-entry": hostVansEntry,
 	hostVansEntry,
+	"host-vans-container": hostVansContainer,
+	hostVansContainer,
 	"host-vans-img": hostVansImg,
 	hostVansImg,
 	"host-vans-entry-col": hostVansEntryCol,

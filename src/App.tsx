@@ -9,7 +9,6 @@ import Income from "./pages/Host/Income";
 import Reviews from "./pages/Host/Reviews";
 import HostLayout from "./pages/Host/HostLayout";
 import Dashboard from "./pages/Host/Dashboard";
-import HostVans from "./pages/Host/HostVans";
 import Details from "./pages/Host/HostDetails";
 import HostVanDetailsLayout from "./pages/Host/HostDetailsLayout";
 import HostPhotos from "./pages/Host/HostPhotos";
@@ -22,6 +21,7 @@ import AuthRequired from "./pages/Auth/AuthRequired";
 import { useEffect, useState } from "react";
 import Logout from "./pages/Auth/Logout";
 import { setupAuthenticator } from "./api/api";
+import HostVansOverview from "./pages/Host/HostVansOverview";
 
 function App(): React.ReactElement {
 
@@ -56,7 +56,7 @@ function App(): React.ReactElement {
                 <Route index element={<Dashboard hostId={userId} />} />
                 <Route path="income" element={<Income />} />
                 <Route path="reviews" element={<Reviews />} />
-                <Route path="vans" element={<HostVans hostId={userId} />} />
+                <Route path="vans" element={<HostVansOverview hostId={userId} />} />
                 <Route path="vans/:id" element={<HostVanDetailsLayout />}>
                   <Route index element={<Details />} />
                   <Route path="details" element={<Details />} />
