@@ -15,6 +15,7 @@
   width: 550px;
   height: fit-content;
   background-color: #FFF7ED;
+  position: relative;
 }
 
 * {

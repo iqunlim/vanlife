@@ -54,7 +54,7 @@ function App(): React.ReactElement {
             <Route element={<AuthRequired authState={authenticated} />}>
               <Route path="host" element={<HostLayout />}>
                 <Route index element={<Dashboard hostId={userId} />} />
-                <Route path="income" element={<Income />} />
+                <Route path="income" element={<Income hostId={userId} />} />
                 <Route path="reviews" element={<Reviews />} />
                 <Route path="vans" element={<HostVansOverview hostId={userId} />} />
                 <Route path="vans/:id" element={<HostVanDetailsLayout />}>

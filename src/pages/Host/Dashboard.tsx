@@ -3,22 +3,17 @@ import classes from "../../css-modules/Dashboard.module.css"
 import HostVans from "./HostVans";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
+import IncomeDisplay from "../../components/Income";
 
 export default function Dashboard({ hostId }: { hostId: string }) {
 
-  const [income, setIncome] = useState<number>(0);
   const [reviewScore, setReviewScore] = useState<number>(0);
 
   // TODO: pulling the data and putting it in setIncome and setReviewScore
   useEffect(() => {
-    setIncome(0)
     setReviewScore(0)
   }, [hostId])
 
-  const USDollar = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-  });
 
   return (
     <>
@@ -27,10 +22,7 @@ export default function Dashboard({ hostId }: { hostId: string }) {
           <div className={classes.informationContent}>
             <h1 className={classes.dashboardWelcome}>Welcome!
             </h1>
-            <span>Income last <i>30 days</i></span>
-            <h1 className={classes.income}>
-              {USDollar.format(income)}
-            </h1>
+            <IncomeDisplay hostId={hostId} />
           </div>
           <div className={classes.detailsContainer}>
             <NavLink className={classes.details} to="income">Details</NavLink>

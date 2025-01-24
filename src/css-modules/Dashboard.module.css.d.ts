@@ -15,6 +15,10 @@ const income: string;
 const vansListHeader: string;
 const detailsContainer: string;
 const details: string;
+const incomeContainer: string;
+const incomeTransactions: string;
+const incomeTransactionsHeader: string;
+const transaction: string;
 
 export {
 	dashboard,
@@ -29,7 +33,14 @@ export {
 	vansListHeader,
 	detailsContainer as "details-container",
 	detailsContainer,
-	details
+	details,
+	incomeContainer as "income-container",
+	incomeContainer,
+	incomeTransactions as "income-transactions",
+	incomeTransactions,
+	incomeTransactionsHeader as "income-transactions-header",
+	incomeTransactionsHeader,
+	transaction
 };
 
 export default {
@@ -45,5 +56,12 @@ export default {
 	vansListHeader,
 	"details-container": detailsContainer,
 	detailsContainer,
-	details
+	details,
+	"income-container": incomeContainer,
+	incomeContainer,
+	"income-transactions": incomeTransactions,
+	incomeTransactions,
+	"income-transactions-header": incomeTransactionsHeader,
+	incomeTransactionsHeader,
+	transaction
 };

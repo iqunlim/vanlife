@@ -1,8 +1,9 @@
 .van-detail-details {
     border-radius: 5px;
+    margin-block: 1rem;
     padding: 1rem;
     width: 100%;
-    background-color: #ffead0;
+    background-color: #fff;
 }
 
 .van-detail-details>div {

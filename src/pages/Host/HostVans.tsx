@@ -12,7 +12,6 @@ import { VanObject } from "../../api/types";
  */
 export default function HostVans({ hostId, count, showedit }: { hostId: string, count?: number, showedit?: boolean }) {
   const [hostVans, setHostVans] = useState<VanObject[] | null>(null);
-
   useEffect(() => {
     // If it becomes too expensive to get all of the vans, add a count to getHostVans
     getHostVans(hostId)
@@ -35,7 +34,7 @@ export default function HostVans({ hostId, count, showedit }: { hostId: string, 
               </div>
             </div>
             <div>
-              {showedit && <Link to="edit" className={classes.hostVansEntryLink}>Edit</Link>}
+              {showedit && <Link to="#" className={classes.hostVansEntryLink}>Edit</Link>}
             </div>
           </div>
         )).slice(0, count ? count : hostVans.length)

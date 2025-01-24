@@ -62,3 +62,16 @@ export type Creds = {
   email: string;
   password: string;
 };
+
+export type IncomeEntry = {
+  date: Date;
+  value: number;
+};
+
+/**
+ * Converts a number to $<number>.00
+ */
+export const USDollarConverter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
