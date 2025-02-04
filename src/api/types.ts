@@ -35,27 +35,6 @@ export class APIError extends Error {
   }
 }
 
-// Type Guards
-// TODO: Try Zod? Doing this is not the modern way
-// to validate API return objects.
-/**
- * A function to validate that an API Return or other object is a VanObject
- */
-export function isVanObject(obj: unknown): obj is VanObject {
-  const validVanTypes: VanType[] = ["simple", "rugged", "luxury"];
-
-  return (
-    typeof obj === "object" &&
-    obj !== null &&
-    typeof (obj as VanObject).id === "string" &&
-    typeof (obj as VanObject).name === "string" &&
-    typeof (obj as VanObject).price === "number" &&
-    typeof (obj as VanObject).description === "string" &&
-    typeof (obj as VanObject).imageUrl === "string" &&
-    validVanTypes.includes((obj as VanObject).type)
-  );
-}
-
 // Shorthand for a react setstate function
 export type StateCallback<T> = React.Dispatch<React.SetStateAction<T>>;
 

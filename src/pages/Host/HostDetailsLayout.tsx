@@ -3,7 +3,7 @@ import { BsArrowLeft } from "react-icons/bs";
 import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 import clsx from "clsx";
 import classes from "../../css-modules/HostDetails.module.css"
-import { getVan } from "../../api/api";
+import { getVan } from "../../api/items/vans-items";
 import { VanObject } from "../../api/types";
 
 export default function HostVanDetailsLayout() {
@@ -42,7 +42,10 @@ export default function HostVanDetailsLayout() {
       {van ? (
         <div className={classes.vanDetailDetails}>
           <div className={classes.vanDetailDetailsTop}>
-            <img className={classes.vanDetailDetailsImg} src={van.imageUrl} />
+            <img
+              className={classes.vanDetailDetailsImg}
+              src={van.imageUrl}
+            />
             <div className={classes.vanDetailDetailsTopSide}>
               <div
                 className={clsx({

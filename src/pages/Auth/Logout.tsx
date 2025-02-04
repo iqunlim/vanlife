@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { logoutHost } from "../../api/api";
+import { logoutHost } from "../../api/auth/auth";
 import { useEffect } from "react";
 
 export default function Logout({ authSetter }: { authSetter: React.Dispatch<React.SetStateAction<boolean>> }) {

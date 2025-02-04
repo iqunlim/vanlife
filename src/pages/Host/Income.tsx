@@ -3,10 +3,12 @@ import classes from "../../css-modules/Dashboard.module.css"
 import { IncomeEntry, USDollarConverter } from "../../api/types";
 import GraphImgTemp from "../../assets/tempgraph.png";
 import { formatDateToDateString } from "../../utils/utils";
-import { getHostIncome, getHostTotal } from "../../api/income.items";
+import { getHostIncome, getHostTotal } from "../../api/items/income.items";
+import { useOutletContext } from "react-router-dom";
 
-export default function Income({ hostId }: { hostId: string }) {
+export default function Income() {
 
+  const hostId = useOutletContext<string>();
   const [transactions, setTransactions] = useState<IncomeEntry[]>([])
   const [total, setTotal] = useState<number>(0)
 
@@ -35,7 +37,10 @@ export default function Income({ hostId }: { hostId: string }) {
         </div>
         <div className={classes.transactionContainer}>
           {transactions.length > 0 ? transactions.map((item) => {
-            return <div key={item.id} className={classes.transaction}><strong>{USDollarConverter.format(item.amount)}</strong><p>{formatDateToDateString(item.date.toDate())}</p></div>
+            return <div key={item.id} className={classes.transaction}>
+              <strong>{USDollarConverter.format(item.amount)}</strong>
+              <p>{formatDateToDateString(item.date.toDate())}</p>
+            </div>
           }) : <h1>You have no transactions yet!</h1>}
         </div>
       </div>

@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import classes from "../../css-modules/Login.module.css"
 import { APIError, Creds } from "../../api/types";
-import FirebaseErrorToAPIError, { loginHost } from "../../api/api";
+import FirebaseErrorToAPIError from "../../api/api";
+import { loginHost } from "../../api/auth/auth";
 import { FirebaseError } from "firebase/app";
 
 type StatusState = "idle" | "submitting";
 
 export default function Login() {
+  // This uses the old react 18 form style. These days, I would do this differently.
+
   const navigate = useNavigate();
   const location = useLocation();
   const [status, setStatus] = useState<StatusState>("idle");

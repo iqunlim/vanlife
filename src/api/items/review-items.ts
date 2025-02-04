@@ -7,8 +7,8 @@ import {
   Timestamp,
   where,
 } from "firebase/firestore";
-import { db } from "./api";
-import { APIError, ReviewEntry } from "./types";
+import { db } from "../api";
+import { APIError, ReviewEntry } from "../types";
 
 const reviewsCollectionRef = collection(db, "reviews");
 

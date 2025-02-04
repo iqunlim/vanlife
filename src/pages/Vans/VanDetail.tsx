@@ -3,7 +3,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { BsArrowLeft } from "react-icons/bs";
 import classes from "../../css-modules/VanDetail.module.css"
 import clsx from "clsx";
-import { getVan } from "../../api/api";
+import { getVan } from "../../api/items/vans-items";
 import { VanObject } from "../../api/types";
 
 export default function VanDetail() {
@@ -18,10 +18,6 @@ export default function VanDetail() {
     return getVan(id);
   }
 
-  // TODO: Error handling on the page
-  // Do a catch and then setError with a state error thing
-  // See Vans.tsx
-  // Use APIError type
   React.useEffect(() => {
     fetchOneVan(params.id).then((response) => setVanDetal(response));
   }, [params.id]);
@@ -55,7 +51,9 @@ export default function VanDetail() {
             <span>${van.price}</span>/day
           </p>
           <p className={classes.description}>{van.description}</p>
-          <button className={`${classes.linkButton} orange-button wide-button`}>
+          <button
+            className={`${classes.linkButton} orange-button wide-button`}
+          >
             Rent this van
           </button>
         </div>

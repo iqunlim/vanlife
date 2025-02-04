@@ -1,4 +1,4 @@
-import { db } from "./api";
+import { db } from "../api";
 
 import {
   collection,
@@ -9,7 +9,7 @@ import {
   Timestamp,
   where,
 } from "firebase/firestore";
-import { APIError, IncomeEntry } from "./types";
+import { APIError, IncomeEntry } from "../types";
 
 const incomeCollectionRef = collection(db, "transactions");
 const thirtyDaysAgo = Timestamp.fromDate(

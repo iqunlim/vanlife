@@ -8,17 +8,29 @@ export default function Header(): React.ReactElement {
 
   return (
     <header>
-      <Link className={classes.title} to="/">
+      <Link
+        className={classes.title}
+        to="/"
+      >
         #VANLIFE
       </Link>
       <nav>
-        <NavLink to="host" className={activeMainNavStyle}>
+        <NavLink
+          to="host"
+          className={activeMainNavStyle}
+        >
           Host
         </NavLink>
-        <NavLink to="/about" className={activeMainNavStyle}>
+        <NavLink
+          to="/about"
+          className={activeMainNavStyle}
+        >
           About
         </NavLink>
-        <NavLink to="/vans" className={activeMainNavStyle}>
+        <NavLink
+          to="/vans"
+          className={activeMainNavStyle}
+        >
           Vans
         </NavLink>
       </nav>

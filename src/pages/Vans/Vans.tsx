@@ -3,14 +3,16 @@ import clsx from "clsx";
 import { Link, useSearchParams } from "react-router-dom";
 import { APIError, VanObject } from "../../api/types.ts";
 import classes from "../../css-modules/Vans.module.css"
-import { getVans } from "../../api/api.ts";
+import { getVans } from "../../api/items/vans-items.ts";
 
 export default function Vans() {
+
   const [searchParams, setSearchParams] = useSearchParams();
   const typeFilter = searchParams.get("type");
   const [loading, setLoading] = useState<boolean>(false);
   const [vanData, setVanData] = useState<VanObject[] | null>(null);
   const [error, setError] = useState<APIError | null>(null);
+
   React.useEffect(() => {
     async function GetData() {
       setLoading(true);
@@ -60,7 +62,9 @@ export default function Vans() {
   if (error) {
     console.error(error.message);
     return (
-      <h2 aria-live="assertive">{`There was an error: ${error.statusText}`}</h2>
+      <h2 aria-live="assertive">
+        {`There was an error: ${error.statusText}`}
+      </h2>
     );
   }
   return (
@@ -121,7 +125,10 @@ export default function Vans() {
                   type: typeFilter,
                 }}
               >
-                <img className={classes.optionsImg} src={van.imageUrl} />
+                <img
+                  className={classes.optionsImg}
+                  src={van.imageUrl}
+                />
                 <div className={classes.optionsSubcomponent}>
                   <span className={classes.vanText}>{van.name}</span>
                   <span className={classes.vanText}>${van.price}</span>

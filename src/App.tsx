@@ -15,12 +15,11 @@ import HostPhotos from "./pages/Host/HostPhotos";
 import HostPricing from "./pages/Host/HostPricing";
 import NotFoundPage from "./pages/NotFound";
 
-//import "./api/server";
 import Login from "./pages/Auth/Login";
 import AuthRequired from "./pages/Auth/AuthRequired";
 import { useEffect, useState } from "react";
 import Logout from "./pages/Auth/Logout";
-import { setupAuthenticator } from "./api/api";
+import { setupAuthenticator } from "./api/auth/auth";
 import HostVansOverview from "./pages/Host/HostVansOverview";
 
 function App(): React.ReactElement {
@@ -52,11 +51,11 @@ function App(): React.ReactElement {
             <Route path="vans" element={<Vans />} />
             <Route path="vans/:id" element={<VanDetail />} />
             <Route element={<AuthRequired authState={authenticated} />}>
-              <Route path="host" element={<HostLayout />}>
-                <Route index element={<Dashboard hostId={userId} />} />
-                <Route path="income" element={<Income hostId={userId} />} />
-                <Route path="reviews" element={<Reviews hostId={userId} />} />
-                <Route path="vans" element={<HostVansOverview hostId={userId} />} />
+              <Route path="host" element={<HostLayout hostId={userId} />}>
+                <Route index element={<Dashboard />} />
+                <Route path="income" element={<Income />} />
+                <Route path="reviews" element={<Reviews />} />
+                <Route path="vans" element={<HostVansOverview />} />
                 <Route path="vans/:id" element={<HostVanDetailsLayout />}>
                   <Route index element={<Details />} />
                   <Route path="details" element={<Details />} />

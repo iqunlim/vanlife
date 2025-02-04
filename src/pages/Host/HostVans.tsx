@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import classes from "../../css-modules/HostVans.module.css"
-import { getHostVans } from "../../api/api";
+import { getHostVans } from "../../api/items/vans-items";
 import { VanObject } from "../../api/types";
 
 /**
@@ -25,16 +25,30 @@ export default function HostVans({ hostId, count, showedit }: { hostId: string, 
         ? hostVans.map((van) => (
           <div key={van.id} className={classes.hostVansEntry}>
             <div className={classes.hostVansContainer}>
-              <img src={van.imageUrl} className={classes.hostVansImg} />
+              <img
+                src={van.imageUrl}
+                className={classes.hostVansImg}
+              />
               <div className={classes.hostVansEntryCol}>
-                <Link to={`/host/vans/${van.id}`} className={classes.hostVansEntryLink}>
+                <Link
+                  to={`/host/vans/${van.id}`}
+                  className={classes.hostVansEntryLink}
+                >
                   {van.name}
                 </Link>
-                <span className={classes.perDayText}>{`$${van.price}/day`}</span>
+                <span className={classes.perDayText}>
+                  {`$${van.price}/day`}
+                </span>
               </div>
             </div>
             <div>
-              {showedit && <Link to="#" className={classes.hostVansEntryLink}>Edit</Link>}
+              {showedit &&
+                <Link
+                  to="#"
+                  className={classes.hostVansEntryLink}
+                >
+                  Edit
+                </Link>}
             </div>
           </div>
         )).slice(0, count ? count : hostVans.length)

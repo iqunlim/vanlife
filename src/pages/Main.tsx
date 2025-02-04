@@ -10,7 +10,11 @@ export default function Main() {
         Add adventure to your life by joining the #vanlife movement. Rent the
         perfect van to make your perfect road trip.
       </h2>
-      <Link className="orange-button wide-button" style={{ marginTop: "20px", fontWeight: 700 }} to="/vans">
+      <Link
+        className="orange-button wide-button"
+        style={{ marginTop: "20px", fontWeight: 700 }}
+        to="/vans"
+      >
         Find your van
       </Link>
     </main >

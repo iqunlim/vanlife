@@ -5,7 +5,10 @@ export default function NotFoundPage() {
   return (
     <div className={classes.notfoundPage}>
       <h1>Sorry, the page you were looking for was not found</h1>
-      <Link to="/" className={classes.backButton}>
+      <Link
+        to="/"
+        className={classes.backButton}
+      >
         Return to Home
       </Link>
     </div>

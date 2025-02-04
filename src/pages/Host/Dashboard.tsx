@@ -1,18 +1,19 @@
 import { BsFillStarFill } from "react-icons/bs";
 import classes from "../../css-modules/Dashboard.module.css"
 import HostVans from "./HostVans";
-import { NavLink } from "react-router-dom";
+import { NavLink, useOutletContext } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getAverageReviews } from "../../api/review-items";
-import { getHostTotal } from "../../api/income.items";
+import { getAverageReviews } from "../../api/items/review-items";
+import { getHostTotal } from "../../api/items/income.items";
 import { USDollarConverter } from "../../api/types";
 
-export default function Dashboard({ hostId }: { hostId: string }) {
+export default function Dashboard() {
+
+  const hostId = useOutletContext<string>();
 
   const [reviewScore, setReviewScore] = useState<number>(0);
   const [total, setTotal] = useState<number>(0);
 
-  // TODO: pulling the data and putting it in setIncome and setReviewScore
   useEffect(() => {
     getAverageReviews(hostId).then((data) => {
       if (data) {
@@ -35,7 +36,12 @@ export default function Dashboard({ hostId }: { hostId: string }) {
             </h2>
           </div>
           <div className={classes.detailsContainer}>
-            <NavLink className={classes.details} to="income">Details</NavLink>
+            <NavLink
+              className={classes.details}
+              to="income"
+            >
+              Details
+            </NavLink>
           </div>
         </div>
         <div className={classes.reviews}>
@@ -46,15 +52,28 @@ export default function Dashboard({ hostId }: { hostId: string }) {
             <BsFillStarFill color="orange" />
             <strong>{reviewScore.toFixed(1)}</strong>/5.0
           </p>
-          <NavLink className={classes.details} to="reviews">Details</NavLink>
+          <NavLink
+            className={classes.details}
+            to="reviews"
+          >
+            Details
+          </NavLink>
         </div>
       </div >
       <div className={classes.vansListHeader}>
         <h2>Your listed vans</h2>
-        <NavLink className={classes.details} to="vans">View All</NavLink>
+        <NavLink
+          className={classes.details}
+          to="vans"
+        >
+          View All
+        </NavLink>
       </div>
-
-      <HostVans hostId={hostId} count={3} showedit />
+      <HostVans
+        hostId={hostId}
+        count={3}
+        showedit
+      />
     </>
   );
 }

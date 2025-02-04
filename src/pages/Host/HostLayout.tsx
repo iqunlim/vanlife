@@ -2,7 +2,7 @@ import { CSSProperties } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import classes from "../../css-modules/HostDetails.module.css"
 
-export default function HostLayout() {
+export default function HostLayout({ hostId }: { hostId: string }) {
   const navStyle: CSSProperties = {
     fontWeight: "bold",
     textDecoration: "underline",
@@ -30,7 +30,8 @@ export default function HostLayout() {
           Log out
         </NavLink>
       </nav>
-      <Outlet />
+      {/* We pass the host Id as an outlet context since so many components below use it */}
+      <Outlet context={hostId} />
     </>
   );
 }
