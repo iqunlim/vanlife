@@ -1,7 +1,11 @@
 import { Outlet, Navigate } from "react-router-dom";
 
 export default function AuthRequired({ authState }: { authState: boolean }) {
-  authState = true;
+
+  if (import.meta.env.VITE_DISABLE_AUTH === "true") {
+    authState = true
+  }
+
   return authState ? (
     <Outlet />
   ) : (

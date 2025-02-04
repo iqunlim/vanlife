@@ -55,7 +55,7 @@ function App(): React.ReactElement {
               <Route path="host" element={<HostLayout />}>
                 <Route index element={<Dashboard hostId={userId} />} />
                 <Route path="income" element={<Income hostId={userId} />} />
-                <Route path="reviews" element={<Reviews />} />
+                <Route path="reviews" element={<Reviews hostId={userId} />} />
                 <Route path="vans" element={<HostVansOverview hostId={userId} />} />
                 <Route path="vans/:id" element={<HostVanDetailsLayout />}>
                   <Route index element={<Details />} />

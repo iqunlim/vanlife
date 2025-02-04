@@ -68,6 +68,14 @@ export type IncomeEntry = {
   value: number;
 };
 
+export type ReviewEntry = {
+  host: string;
+  rating: number;
+  name: string;
+  date: Date;
+  content?: string;
+};
+
 /**
  * Converts a number to $<number>.00
  */
