@@ -1,12 +1,9 @@
 # Temporary TODOs:
 
-Finish various host pages:
-
-- Dashboard
-- Income
-- Reviews
-
-Features:
-
-- All "host" pages appear to have a different primary and secondary bg color
-  - How would we control this? context?
+Review CSS, see if you can make it better
+Check all useeffects, do we need all of them?
+Organize utils.ts perhaps move some repetitive functionality out of components in to utility functions
+Large scale review of DRY code. Theres some repetition out there.
+Clean up unnecessary comments, add constructive comments where applicable
+Add error handling in the DOM with useState setters and etc
+Make real readme
