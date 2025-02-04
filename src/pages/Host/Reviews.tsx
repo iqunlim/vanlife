@@ -4,23 +4,24 @@ import classes from "../../css-modules/Reviews.module.css"
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs"
 import ReviewTempImage from "../../assets/temprating.png"
 import { formatDateToDateString } from "../../utils/utils"
+import { getAverageReviews, GetHostReviews } from "../../api/review-items"
 
 export default function Reviews({ hostId }: { hostId: string }) {
 
-  const [reviews, setReviews] = useState<ReviewEntry[]>([{
-    host: "5mU9N7P3DcVmNJpAhWtc6iZV4752",
-    rating: 5,
-    date: new Date,
-    name: "Sandy",
-    content: "This is our third time using the Modest Explorer for our travels and we love it! No complaints, absolutely perfect!"
-  }])
+  const [reviews, setReviews] = useState<ReviewEntry[]>([])
+  const [reviewAvg, setReviewAvg] = useState(0);
 
-  useEffect(() => { }, [hostId])
+  useEffect(() => {
+    GetHostReviews(hostId).then(setReviews)
+    getAverageReviews(hostId).then(data => {
+      if (data) {
+        setReviewAvg(data)
+      } else {
+        throw new Error("Average for host not defined")
+      }
+    })
+  }, [hostId])
 
-  const getReviewAverage = () => {
-    const average = reviews.reduce((accumulator, review) => accumulator + review.rating, 0) / reviews.length
-    return <h1>{average.toFixed(1)}</h1>
-  }
 
   const getReviewStars = (rating: number) => {
     if (rating > 5) { rating = 5 }
@@ -51,7 +52,7 @@ export default function Reviews({ hostId }: { hostId: string }) {
       </div>
       <div className={classes.reviewSummary}>
         <div className={classes.reviewSummaryTitle}>
-          {reviews.length > 0 ? <><h3>{getReviewAverage()}</h3>
+          {reviews.length > 0 ? <><h1>{reviewAvg.toFixed(1)}</h1>
             <BsStarFill className={classes.stars} color="orange" />
             <span>overall rating</span></> : <h2>You have no reviews!</h2>}
         </div>
@@ -61,12 +62,12 @@ export default function Reviews({ hostId }: { hostId: string }) {
       </div>
       <h3>Reviews{reviews.length > 0 && ` (${reviews.length})`}</h3>
       {reviews.map((review) =>
-        <section className={classes.reviewContent}>
+        <section key={review.id} className={classes.reviewContent}>
           <div>
             {getReviewStars(review.rating)}
           </div>
           <div className={classes.reviewTitleBar}>
-            <span>{review.name}</span><i>-{formatDateToDateString(review.date)}</i>
+            <span>{review.name}</span><i>-{formatDateToDateString(review.date.toDate())}</i>
           </div>
           <p className={classes.reviewParagraph}>{review.content}</p>
         </section>)}

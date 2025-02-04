@@ -1,3 +1,5 @@
+import { Timestamp } from "firebase/firestore";
+
 /**
  * Van types, usually used to color buttons
  */
@@ -69,10 +71,11 @@ export type IncomeEntry = {
 };
 
 export type ReviewEntry = {
+  id: string;
   host: string;
   rating: number;
   name: string;
-  date: Date;
+  date: Timestamp;
   content?: string;
 };
 

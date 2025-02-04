@@ -4,6 +4,7 @@ import HostVans from "./HostVans";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import IncomeDisplay from "../../components/Income";
+import { getAverageReviews } from "../../api/review-items";
 
 export default function Dashboard({ hostId }: { hostId: string }) {
 
@@ -11,9 +12,12 @@ export default function Dashboard({ hostId }: { hostId: string }) {
 
   // TODO: pulling the data and putting it in setIncome and setReviewScore
   useEffect(() => {
-    setReviewScore(0)
+    getAverageReviews(hostId).then((data) => {
+      if (data) {
+        setReviewScore(data)
+      }
+    })
   }, [hostId])
-
 
   return (
     <>

@@ -31,7 +31,7 @@ const firebaseConfig = {
 
 // Firebase app and service initialization
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+export const db = getFirestore(app);
 const vansCollectionRef = collection(db, "vans");
 const auth = getAuth(app);
 
