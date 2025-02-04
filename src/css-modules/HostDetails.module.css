@@ -1,9 +1,13 @@
 .van-detail-details {
-    margin-block: 2em;
     border-radius: 5px;
+    margin-block: 1rem;
     padding: 1rem;
     width: 100%;
-    background-color: #ffead0;
+    background-color: #fff;
+}
+
+.van-detail-details>div {
+    margin-block: 1rem;
 }
 
 .van-detail-details-top {
@@ -44,8 +48,10 @@
 
 .host-nav {
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 1rem;
+    gap: 25px;
 }
 
 .host-nav a {

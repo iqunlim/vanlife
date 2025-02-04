@@ -1,0 +1,134 @@
+.dashboard {
+    margin-block: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.information {
+    padding-block: 1rem;
+    padding-left: 25px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FFEAD0;
+}
+
+.dashboard-welcome {
+    font-size: 2.25rem;
+}
+
+.information-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.information-content>span {
+    color: #4d4d4d;
+}
+
+.information-content>span>i {
+    font-style: normal;
+    color: #4d4d4d;
+    text-decoration: underline;
+}
+
+.reviews {
+    padding-block: 2rem;
+    padding-left: 25px;
+    background-color: #FFDDB2;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.income {
+    font-weight: 800;
+    font-size: 2.5rem;
+}
+
+.vans-list-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 1rem;
+}
+
+.details-container {
+    align-self: center;
+}
+
+.details {
+    font-size: 1rem;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.details:hover {
+    text-decoration: underline;
+}
+
+.details:visited {
+    margin-left: auto;
+    margin-right: 1rem;
+    color: #000;
+    text-decoration: none;
+}
+
+.income-container {
+    margin-block: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding-inline: 1rem;
+}
+
+.income-transactions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.income-transactions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.income-transactions-header>span {
+    color: #4d4d4d;
+}
+
+.income-transactions-header>span>i {
+    font-style: normal;
+    color: #000;
+    text-decoration: underline;
+}
+
+.transaction-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.transaction {
+    height: 100px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    padding-inline: 1rem;
+}
+
+.transaction>strong {
+    font-size: 1.8rem;
+}
+
+.transaction>p {
+    color: #4d4d4d;
+}
+
+.income-temp-img {
+    margin: auto;
+}

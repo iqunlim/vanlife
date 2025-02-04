@@ -1,3 +1,5 @@
+import { Timestamp } from "firebase/firestore";
+
 /**
  * Van types, usually used to color buttons
  */
@@ -62,3 +64,27 @@ export type Creds = {
   email: string;
   password: string;
 };
+
+export type IncomeEntry = {
+  id: string;
+  host: string;
+  date: Timestamp;
+  amount: number;
+};
+
+export type ReviewEntry = {
+  id: string;
+  host: string;
+  rating: number;
+  name: string;
+  date: Timestamp;
+  content?: string;
+};
+
+/**
+ * Converts a number to $<number>.00
+ */
+export const USDollarConverter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});

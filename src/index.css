@@ -5,7 +5,7 @@
 }
 
 :root {
-  background-color: #ffeacf;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,8 +14,8 @@
 .container {
   width: 550px;
   height: fit-content;
-  background-color: #fff;
-  border-radius: 5px;
+  background-color: #FFF7ED;
+  position: relative;
 }
 
 * {

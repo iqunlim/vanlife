@@ -11,6 +11,7 @@ const back: string;
 const vanDetail: string;
 const vanPrice: string;
 const linkButton: string;
+const description: string;
 const vantypeany: string;
 const backFlex: string;
 
@@ -24,6 +25,7 @@ export {
 	vanPrice,
 	linkButton as "link-button",
 	linkButton,
+	description,
 	vantypeany,
 	backFlex as "back-flex",
 	backFlex
@@ -39,6 +41,7 @@ export default {
 	vanPrice,
 	"link-button": linkButton,
 	linkButton,
+	description,
 	vantypeany,
 	"back-flex": backFlex,
 	backFlex

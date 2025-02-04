@@ -7,8 +7,8 @@
   margin-block: 30px;
 }
 
-h2 {
-  padding-left: 20px;
+.login-container>h2 {
+  align-self: flex-start;
   font-size: 1.5rem;
   font-weight: 600;
   color: black;
