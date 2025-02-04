@@ -1,23 +1,29 @@
 import { useEffect, useState } from "react";
-import IncomeDisplay from "../../components/Income";
 import classes from "../../css-modules/Dashboard.module.css"
 import { IncomeEntry, USDollarConverter } from "../../api/types";
 import GraphImgTemp from "../../assets/tempgraph.png";
 import { formatDateToDateString } from "../../utils/utils";
+import { getHostIncome, getHostTotal } from "../../api/income.items";
 
 export default function Income({ hostId }: { hostId: string }) {
 
-  const [transactions, setTransactions] = useState<IncomeEntry[]>([{ value: 720, date: new Date }])
+  const [transactions, setTransactions] = useState<IncomeEntry[]>([])
+  const [total, setTotal] = useState<number>(0)
 
   // Transactions fetch
-  useEffect(() => { }, [hostId])
+  useEffect(() => {
+    getHostIncome(hostId).then(setTransactions)
+    getHostTotal(hostId).then(setTotal)
+  }, [hostId])
 
 
   return (
     <div className={classes.incomeContainer}>
       <div className={classes.informationContent}>
         <h1>Income</h1>
-        <IncomeDisplay hostId={hostId} />
+        <h1 className={classes.income}>
+          {USDollarConverter.format(total)}
+        </h1>
       </div>
       <div className={classes.incomeTempImg}>
         <img src={GraphImgTemp} />
@@ -27,10 +33,10 @@ export default function Income({ hostId }: { hostId: string }) {
           <h2>Your transactions ({transactions.length})</h2>
           <span>Last <i>30 days</i></span>
         </div>
-        <div>
-          {transactions ? transactions.map((item) => {
-            return <div className={classes.transaction}><strong>{USDollarConverter.format(item.value)}</strong><p>{formatDateToDateString(item.date)}</p></div>
-          }) : null}
+        <div className={classes.transactionContainer}>
+          {transactions.length > 0 ? transactions.map((item) => {
+            return <div key={item.id} className={classes.transaction}><strong>{USDollarConverter.format(item.amount)}</strong><p>{formatDateToDateString(item.date.toDate())}</p></div>
+          }) : <h1>You have no transactions yet!</h1>}
         </div>
       </div>
     </div>

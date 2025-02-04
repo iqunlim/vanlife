@@ -18,6 +18,7 @@ const details: string;
 const incomeContainer: string;
 const incomeTransactions: string;
 const incomeTransactionsHeader: string;
+const transactionContainer: string;
 const transaction: string;
 const incomeTempImg: string;
 
@@ -41,6 +42,8 @@ export {
 	incomeTransactions,
 	incomeTransactionsHeader as "income-transactions-header",
 	incomeTransactionsHeader,
+	transactionContainer as "transaction-container",
+	transactionContainer,
 	transaction,
 	incomeTempImg as "income-temp-img",
 	incomeTempImg
@@ -66,6 +69,8 @@ export default {
 	incomeTransactions,
 	"income-transactions-header": incomeTransactionsHeader,
 	incomeTransactionsHeader,
+	"transaction-container": transactionContainer,
+	transactionContainer,
 	transaction,
 	"income-temp-img": incomeTempImg,
 	incomeTempImg

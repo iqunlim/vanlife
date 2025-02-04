@@ -66,8 +66,10 @@ export type Creds = {
 };
 
 export type IncomeEntry = {
-  date: Date;
-  value: number;
+  id: string;
+  host: string;
+  date: Timestamp;
+  amount: number;
 };
 
 export type ReviewEntry = {
