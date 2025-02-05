@@ -25,19 +25,19 @@ import HostVansOverview from "./pages/Host/HostVansOverview";
 function App(): React.ReactElement {
 
   // Global app authentication state lives here
-  const [authenticated, setAuthenticated] = useState<boolean>(false)
-  const [userId, setUserId] = useState<string>("")
+  const [authenticated, setAuthenticated] = useState<boolean>(false);
+  const [userId, setUserId] = useState<string>("");
 
   useEffect(() => {
     // Getting data from an API Function instead of wiring firebase straight in to the application
-    const unsubscribe = setupAuthenticator(setAuthenticated, setUserId)
+    const unsubscribe = setupAuthenticator(setAuthenticated, setUserId);
 
     return () => {
-      setAuthenticated(false)
-      setUserId("")
-      unsubscribe()
+      setAuthenticated(false);
+      setUserId("");
+      unsubscribe();
     };
-  }, [])
+  }, []);
 
 
   return (
