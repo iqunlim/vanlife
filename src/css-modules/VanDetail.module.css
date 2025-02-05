@@ -75,3 +75,7 @@
     margin: 1rem;
     align-self: center;
 }
+
+.van-modal-content {
+    text-align: center;
+}

@@ -6,9 +6,19 @@ Figma link: https://www.figma.com/file/igDA2NiMDhoaIIAqm5EnTq/%23VanLife?node-id
 
 Login information for host pages:
 
-Username: `b@b.com`
+User with data:
 
-Password: `p12345678`
+```
+Username: b@b.com
+Password: p12345678
+```
+
+User without data:
+
+```
+Username: b2@b.com
+Password: p654321
+```
 
 # Code cleanliness TODOS:
 

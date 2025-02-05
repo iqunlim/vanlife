@@ -14,6 +14,7 @@ const linkButton: string;
 const description: string;
 const vantypeany: string;
 const backFlex: string;
+const vanModalContent: string;
 
 export {
 	vanDetailContainer as "van-detail-container",
@@ -28,7 +29,9 @@ export {
 	description,
 	vantypeany,
 	backFlex as "back-flex",
-	backFlex
+	backFlex,
+	vanModalContent as "van-modal-content",
+	vanModalContent
 };
 
 export default {
@@ -44,5 +47,7 @@ export default {
 	description,
 	vantypeany,
 	"back-flex": backFlex,
-	backFlex
+	backFlex,
+	"van-modal-content": vanModalContent,
+	vanModalContent
 };

@@ -5,9 +5,13 @@ import classes from "../../css-modules/VanDetail.module.css"
 import clsx from "clsx";
 import { getVan } from "../../api/items/vans-items";
 import { VanObject } from "../../api/types";
+import Modal from "../../components/Modal";
 
 export default function VanDetail() {
   const [van, setVanDetal] = React.useState<VanObject | null>(null);
+
+  const [modalOpen, setModalOpen] = React.useState(false);
+  console.log(modalOpen)
   const params = useParams();
   const location = useLocation();
 
@@ -52,10 +56,14 @@ export default function VanDetail() {
           </p>
           <p className={classes.description}>{van.description}</p>
           <button
+            onClick={() => setModalOpen(true)}
             className={`${classes.linkButton} orange-button wide-button`}
           >
             Rent this van
           </button>
+          <Modal isOpen={modalOpen} handleClose={() => setModalOpen(false)}>
+            <p className={classes.vanModalContent}>This feature is not implemented in the display version of this website.</p>
+          </Modal>
         </div>
       ) : (
         <h2>Loading...</h2>

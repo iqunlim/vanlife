@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import classes from "../../css-modules/HostVans.module.css"
 import { getHostVans } from "../../api/items/vans-items";
 import { VanObject } from "../../api/types";
+import Modal from "../../components/Modal";
 
 /**
  * Host Vans List reusable component
@@ -12,6 +13,7 @@ import { VanObject } from "../../api/types";
  */
 export default function HostVans({ hostId, count, showedit }: { hostId: string, count?: number, showedit?: boolean }) {
   const [hostVans, setHostVans] = useState<VanObject[] | null>(null);
+  const [showModal, setShowModal] = useState(false);
   useEffect(() => {
     // If it becomes too expensive to get all of the vans, add a count to getHostVans
     getHostVans(hostId)
@@ -20,6 +22,9 @@ export default function HostVans({ hostId, count, showedit }: { hostId: string, 
 
   return (
     <main className={classes.hostVansOverview}>
+      <Modal isOpen={showModal} handleClose={() => setShowModal(false)}>
+        <p style={{ textAlign: "center" }}>This feature is not implemented in the display version of this website.</p>
+      </Modal>
       {/*  Maps over all elements and then just returns the number we want */}
       {hostVans && hostVans.length > 0
         ? hostVans.map((van) => (
@@ -43,12 +48,12 @@ export default function HostVans({ hostId, count, showedit }: { hostId: string, 
             </div>
             <div>
               {showedit &&
-                <Link
-                  to="#"
+                <button
+                  onClick={() => setShowModal(true)}
                   className={classes.hostVansEntryLink}
                 >
                   Edit
-                </Link>}
+                </button>}
             </div>
           </div>
         )).slice(0, count ? count : hostVans.length)

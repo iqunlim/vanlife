@@ -44,6 +44,8 @@
 }
 
 .host-vans-entry-link {
+    background: none;
+    border: none;
     text-decoration: none;
     padding-top: 0;
     font-size: 1rem;

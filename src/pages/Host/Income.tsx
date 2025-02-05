@@ -27,7 +27,7 @@ export default function Income() {
           {USDollarConverter.format(total)}
         </h1>
       </div>
-      <div className={classes.incomeTransactions}>
+      <div>
         <div className={classes.incomeTransactionsHeader}>
           <h2>Your transactions ({transactions.length})</h2>
           <span>Last <i>30 days</i></span>
