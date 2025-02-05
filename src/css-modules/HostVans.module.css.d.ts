@@ -13,6 +13,7 @@ const hostVansImg: string;
 const hostVansEntryCol: string;
 const hostVansEntryLink: string;
 const perDayText: string;
+const noVansAlert: string;
 
 export {
 	hostVansOverview as "host-vans-overview",
@@ -28,7 +29,9 @@ export {
 	hostVansEntryLink as "host-vans-entry-link",
 	hostVansEntryLink,
 	perDayText as "per-day-text",
-	perDayText
+	perDayText,
+	noVansAlert as "no-vans-alert",
+	noVansAlert
 };
 
 export default {
@@ -45,5 +48,7 @@ export default {
 	"host-vans-entry-link": hostVansEntryLink,
 	hostVansEntryLink,
 	"per-day-text": perDayText,
-	perDayText
+	perDayText,
+	"no-vans-alert": noVansAlert,
+	noVansAlert
 };

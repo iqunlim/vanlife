@@ -32,7 +32,7 @@ export async function getHostIncome(hostId: string) {
       return data;
     } else {
       throw new APIError(
-        `Invalid API return in getHostVans(), id ${hostId}`,
+        `Invalid API return in getHostIncome(), id ${hostId}`,
         "Internal Server Error",
         500
       );

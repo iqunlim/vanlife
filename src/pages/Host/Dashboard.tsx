@@ -21,10 +21,10 @@ export default function Dashboard() {
       }
     });
     getHostTotal(hostId).then(setTotal);
-  }, [hostId])
+  }, [hostId]);
 
   return (
-    <>
+    <main>
       <div className={classes.dashboard}>
         <div className={classes.information}>
           <div className={classes.informationContent}>
@@ -50,7 +50,7 @@ export default function Dashboard() {
           </p>
           <p>
             <BsFillStarFill color="orange" />
-            <strong>{reviewScore.toFixed(1)}</strong>/5.0
+            <strong>{reviewScore !== 0 ? reviewScore.toFixed(1) : "N/A"}</strong>/5.0
           </p>
           <NavLink
             className={classes.details}
@@ -74,6 +74,6 @@ export default function Dashboard() {
         count={3}
         showedit
       />
-    </>
+    </main>
   );
 }

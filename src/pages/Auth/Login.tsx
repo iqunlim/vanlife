@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import classes from "../../css-modules/Login.module.css"
-import { APIError, Creds } from "../../api/types";
+import { APIError, Credentials } from "../../api/types";
 import FirebaseErrorToAPIError from "../../api/api";
 import { loginHost } from "../../api/auth/auth";
 import { FirebaseError } from "firebase/app";
@@ -15,7 +15,7 @@ export default function Login() {
   const location = useLocation();
   const [status, setStatus] = useState<StatusState>("idle");
   const [error, setError] = useState<APIError | null>(null);
-  const [loginFormData, setLoginFormData] = React.useState<Creds>({
+  const [loginFormData, setLoginFormData] = React.useState<Credentials>({
     email: "",
     password: "",
   });
@@ -27,11 +27,11 @@ export default function Login() {
       .then(() => navigate("/host", { replace: true }))
       .catch((err) => {
         if (err instanceof FirebaseError) {
-          const apiErr = FirebaseErrorToAPIError(err)
-          setError(apiErr)
+          const apiErr = FirebaseErrorToAPIError(err);
+          setError(apiErr);
         } else {
-          const apiErr = new APIError("Unknown error", "Unknown error", 500)
-          setError(apiErr)
+          const apiErr = new APIError("Unknown error", "Unknown error", 500);
+          setError(apiErr);
         }
       })
       .finally(() => setStatus("idle"));
@@ -47,7 +47,7 @@ export default function Login() {
 
   return (
     <>
-      <div className={classes.loginContainer}>
+      <main className={classes.loginContainer}>
         <h1>Sign in to your account</h1>
         {location.state?.msg && <h2>{location.state.msg}</h2>}
         {error?.statusText && (
@@ -77,7 +77,7 @@ export default function Login() {
             Log in
           </button>
         </form>
-      </div>
+      </main>
     </>
   );
 }

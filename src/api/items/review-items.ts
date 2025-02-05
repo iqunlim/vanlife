@@ -25,7 +25,7 @@ export async function GetHostReviews(hostId: string) {
       return data;
     } else {
       throw new APIError(
-        `Invalid API return in getHostVans(), id ${hostId}`,
+        `Invalid API return in getHostReviews(), id ${hostId}`,
         "Internal Server Error",
         500
       );

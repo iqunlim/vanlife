@@ -68,7 +68,7 @@ export default function Vans() {
     );
   }
   return (
-    <main className={classes.vanPage}>
+    <section className={classes.vanPage}>
       <h1>Explore our van options</h1>
       <div className={classes.vanFilter}>
         <button
@@ -155,6 +155,6 @@ export default function Vans() {
           <h2>No vans found. Add some!</h2>
         )}
       </div>
-    </main>
+    </section>
   );
 }

@@ -16,6 +16,7 @@ const reviewGraphic: string;
 const reviewTitleBar: string;
 const reviewParagraph: string;
 const stars: string;
+const alert: string;
 
 export {
 	reviewContainer as "review-container",
@@ -35,7 +36,8 @@ export {
 	reviewTitleBar,
 	reviewParagraph as "review-paragraph",
 	reviewParagraph,
-	stars
+	stars,
+	alert
 };
 
 export default {
@@ -56,5 +58,6 @@ export default {
 	reviewTitleBar,
 	"review-paragraph": reviewParagraph,
 	reviewParagraph,
-	stars
+	stars,
+	alert
 };

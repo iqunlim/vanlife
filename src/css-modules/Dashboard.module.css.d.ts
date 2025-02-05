@@ -21,6 +21,7 @@ const incomeTransactionsHeader: string;
 const transactionContainer: string;
 const transaction: string;
 const incomeTempImg: string;
+const alert: string;
 
 export {
 	dashboard,
@@ -46,7 +47,8 @@ export {
 	transactionContainer,
 	transaction,
 	incomeTempImg as "income-temp-img",
-	incomeTempImg
+	incomeTempImg,
+	alert
 };
 
 export default {
@@ -73,5 +75,6 @@ export default {
 	transactionContainer,
 	transaction,
 	"income-temp-img": incomeTempImg,
-	incomeTempImg
+	incomeTempImg,
+	alert
 };

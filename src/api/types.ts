@@ -29,21 +29,22 @@ export class APIError extends Error {
    * @param status The HTTP Code of the response, or a manually set HTTP Code
    */
   constructor(message: string, statusText: string, status: number) {
-    super(message); // The error message as usual
+    super(message);
     this.statusText = statusText; // Text to display to the user
     this.status = status; // HTTP Code, manually set right now
   }
 }
 
-// Shorthand for a react setstate function
+/** Shorthand for a react setstate function */
 export type StateCallback<T> = React.Dispatch<React.SetStateAction<T>>;
 
 // User log in credentials type
-export type Creds = {
+export type Credentials = {
   email: string;
   password: string;
 };
 
+/** Type for Host Income Page */
 export type IncomeEntry = {
   id: string;
   host: string;
@@ -51,6 +52,7 @@ export type IncomeEntry = {
   amount: number;
 };
 
+/** Type for Host Review Page */
 export type ReviewEntry = {
   id: string;
   host: string;

@@ -9,9 +9,10 @@ export default function Logout({ authSetter }: { authSetter: React.Dispatch<Reac
     useEffect(() => {
         logoutHost()
             .then(() => {
-                authSetter(false)
-                navigate("/")
-            }).catch((error) => console.log(error))
-    }, [authSetter, navigate])
-    return <h1>Logging out...</h1>
+                authSetter(false);
+                navigate("/");
+            })
+            .catch((error) => console.log(error));
+    }, [authSetter, navigate]);
+    return <h1>Logging out...</h1>;
 }

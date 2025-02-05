@@ -21,7 +21,7 @@ export default function HostVans({ hostId, count, showedit }: { hostId: string, 
   return (
     <main className={classes.hostVansOverview}>
       {/*  Maps over all elements and then just returns the number we want */}
-      {hostVans
+      {hostVans && hostVans.length > 0
         ? hostVans.map((van) => (
           <div key={van.id} className={classes.hostVansEntry}>
             <div className={classes.hostVansContainer}>
@@ -52,7 +52,7 @@ export default function HostVans({ hostId, count, showedit }: { hostId: string, 
             </div>
           </div>
         )).slice(0, count ? count : hostVans.length)
-        : null}
+        : <h1 className={classes.noVansAlert}>You have no vans. Add some!</h1>}
     </main>
   );
 }

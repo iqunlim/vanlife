@@ -5,7 +5,7 @@ import classes from "../../css-modules/AboutPage.module.css"
 
 export default function About(): React.JSX.Element {
   return (
-    <main className={classes.aboutPage}>
+    <section className={classes.aboutPage}>
       <img className={classes.aboutImg} src={AboutBg} />
       <h1>
         Don't squeeze in a sedan when you could relax in a van.
@@ -30,6 +30,6 @@ export default function About(): React.JSX.Element {
           Explore our vans
         </Link>
       </div>
-    </main>
+    </section>
   );
 }

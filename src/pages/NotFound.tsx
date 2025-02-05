@@ -3,7 +3,7 @@ import classes from "../css-modules/NotFound.module.css"
 
 export default function NotFoundPage() {
   return (
-    <div className={classes.notfoundPage}>
+    <main className={classes.notfoundPage}>
       <h1>Sorry, the page you were looking for was not found</h1>
       <Link
         to="/"
@@ -11,6 +11,6 @@ export default function NotFoundPage() {
       >
         Return to Home
       </Link>
-    </div>
+    </main>
   );
 }

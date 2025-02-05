@@ -6,7 +6,7 @@ export default function Details() {
   const van = useOutletContext<VanObject>();
 
   return (
-    <div>
+    <main>
       {van ? (
         <div className={classes.vanDetailDetails}>
           <div>
@@ -27,6 +27,6 @@ export default function Details() {
           </div>
         </div>
       ) : null}
-    </div>
+    </main>
   );
 }

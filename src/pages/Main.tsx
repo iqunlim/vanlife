@@ -17,6 +17,6 @@ export default function Main() {
       >
         Find your van
       </Link>
-    </main >
+    </main>
   );
 }

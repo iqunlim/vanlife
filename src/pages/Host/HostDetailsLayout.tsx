@@ -32,7 +32,7 @@ export default function HostVanDetailsLayout() {
     isActive ? navStyle : undefined;
 
   return (
-    <main className={classes.vanDetailPage}>
+    <section className={classes.vanDetailPage}>
       <div className={classes.back}>
         <BsArrowLeft />
         <Link className={classes.linkBack} to=".." relative="path">
@@ -75,6 +75,6 @@ export default function HostVanDetailsLayout() {
           <Outlet context={van} />
         </div>
       ) : null}
-    </main>
+    </section>
   );
 }
